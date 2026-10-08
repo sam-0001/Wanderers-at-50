@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import { DM_Sans, Newsreader } from "next/font/google";
+import "./globals.css";
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Wanderers at 50 — A Slow Travel Journal",
+  description:
+    "Two explorers, countless stories. Slow, thoughtful and in-depth travel across the Silk Route, the Caucasus and India.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" className={`${newsreader.variable} ${dmSans.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
+}
